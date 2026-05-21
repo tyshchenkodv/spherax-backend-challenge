@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package notify;
+
+service NotifyService {
+  rpc GetNotificationById(GetNotificationByIdRequest) returns (NotificationResponse);
+  rpc CreateNotification(CreateNotificationRequest) returns (NotificationResponse);
+}
+
+message GetNotificationByIdRequest {
+  string id = 1;
+}
+
+message CreateNotificationRequest {
+  string userId = 1;
+  string channel = 2;
+  string subject = 3;
+  string body = 4;
+}
+
+message NotificationResponse {
+  string id = 1;
+  string userId = 2;
+  string channel = 3;
+  string subject = 4;
+  string body = 5;
+  string status = 6;
+  string createdAt = 7;
+  string sentAt = 8;
+}

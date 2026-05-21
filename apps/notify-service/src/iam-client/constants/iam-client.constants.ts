@@ -1,0 +1,1 @@
+export const IAM_SERVICE_GRPC_TOKEN = 'IAM_SERVICE';

@@ -1,0 +1,78 @@
+{
+  "name": "spherax-backend-challenge",
+  "version": "1.0.0",
+  "description": "NestJS monorepo backend challenge for two independent services with REST, Swagger, private gRPC APIs, shared libraries, reusable API versioning, Docker, and unit/integration/e2e test coverage.",
+  "private": true,
+  "scripts": {
+    "build": "nest build iam-service && nest build notify-service",
+    "format": "prettier --write \"{apps,libs,test}/**/*.ts\" \"*.{js,json,md}\"",
+    "lint": "eslint \"{apps,libs,test}/**/*.ts\"",
+    "start:iam": "nest start iam-service",
+    "start:notify": "nest start notify-service",
+    "start:dev:iam": "nest start iam-service --watch",
+    "start:dev:notify": "nest start notify-service --watch",
+    "test": "jest --config jest.config.cjs",
+    "test:integration": "jest --config test/jest-integration.json",
+    "test:e2e": "jest --config test/jest-e2e.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyshchenkodv/spherax-backend-challenge.git"
+  },
+  "keywords": [
+    "nestjs",
+    "grpc",
+    "monorepo"
+  ],
+  "author": "Dmytro Tyshchenko <dmitry.tishchenko98@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
+  "bugs": {
+    "url": "https://github.com/tyshchenkodv/spherax-backend-challenge/issues"
+  },
+  "homepage": "https://github.com/tyshchenkodv/spherax-backend-challenge#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "1.14.4",
+    "@grpc/proto-loader": "0.8.1",
+    "@nestjs/common": "11.1.22",
+    "@nestjs/config": "4.0.4",
+    "@nestjs/core": "11.1.22",
+    "@nestjs/microservices": "11.1.22",
+    "@nestjs/platform-express": "11.1.22",
+    "@nestjs/swagger": "11.4.4",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.15.1",
+    "helmet": "8.1.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@faker-js/faker": "10.4.0",
+    "@nestjs/cli": "11.0.21",
+    "@nestjs/schematics": "11.1.0",
+    "@nestjs/testing": "11.1.22",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@types/express": "5.0.6",
+    "@types/helmet": "0.0.48",
+    "@types/jest": "30.0.0",
+    "@types/node": "25.9.1",
+    "@types/supertest": "7.2.0",
+    "eslint": "10.4.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.5",
+    "jest": "30.4.2",
+    "prettier": "3.8.3",
+    "source-map-support": "0.5.21",
+    "supertest": "7.2.2",
+    "ts-jest": "29.4.10",
+    "ts-loader": "9.5.7",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.4"
+  }
+}

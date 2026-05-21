@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2024",
+    "lib": ["ES2024"],
+    "sourceMap": true,
+    "rootDir": ".",
+    "outDir": "./dist",
+    "incremental": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "isolatedModules": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "types": ["node", "jest"],
+    "strictNullChecks": true,
+    "paths": {
+      "@app/iam-service/*": ["./apps/iam-service/src/*"],
+      "@app/notify-service/*": ["./apps/notify-service/src/*"],
+      "@lib/common": ["./libs/common/src/index.ts"],
+      "@lib/common/*": ["./libs/common/src/*"],
+      "@lib/config": ["./libs/config/src/index.ts"],
+      "@lib/config/*": ["./libs/config/src/*"],
+      "@lib/api-versioning": ["./libs/api-versioning/src/index.ts"],
+      "@lib/api-versioning/*": ["./libs/api-versioning/src/*"],
+      "@lib/grpc": ["./libs/grpc/src/index.ts"],
+      "@lib/grpc/*": ["./libs/grpc/src/*"],
+      "@lib/proto": ["./libs/proto/src/index.ts"],
+      "@lib/proto/*": ["./libs/proto/src/*"]
+    }
+  },
+  "include": ["apps/**/*.ts", "libs/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

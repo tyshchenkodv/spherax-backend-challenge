@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "outDir": "../../dist/apps/notify-service",
+    "paths": {
+      "@app/notify-service/*": ["./src/*"],
+      "@lib/common": ["../../libs/common/src/index.ts"],
+      "@lib/common/*": ["../../libs/common/src/*"],
+      "@lib/config": ["../../libs/config/src/index.ts"],
+      "@lib/config/*": ["../../libs/config/src/*"],
+      "@lib/api-versioning": ["../../libs/api-versioning/src/index.ts"],
+      "@lib/api-versioning/*": ["../../libs/api-versioning/src/*"],
+      "@lib/grpc": ["../../libs/grpc/src/index.ts"],
+      "@lib/grpc/*": ["../../libs/grpc/src/*"],
+      "@lib/proto": ["../../libs/proto/src/index.ts"],
+      "@lib/proto/*": ["../../libs/proto/src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["test", "src/**/*.spec.ts", "src/**/*.integration-spec.ts", "src/**/*.e2e-spec.ts"]
+}

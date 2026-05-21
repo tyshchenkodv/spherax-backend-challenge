@@ -1,0 +1,48 @@
+services:
+  iam-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: iam-service
+    container_name: spherax-iam-service
+    environment:
+      NODE_ENV: production
+      SERVICE_NAME: iam-service
+      SERVICE_HTTP_PORT: 3001
+      IAM_HTTP_PORT: 3001
+      IAM_GRPC_URL: 0.0.0.0:50051
+    ports:
+      - "3001:3001" # HTTP REST
+      - "50051:50051" # gRPC
+    networks:
+      - spherax
+
+  notify-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: notify-service
+    container_name: spherax-notify-service
+    environment:
+      NODE_ENV: production
+      SERVICE_NAME: notify-service
+      SERVICE_HTTP_PORT: 3002
+      NOTIFY_HTTP_PORT: 3002
+      NOTIFY_GRPC_URL: 0.0.0.0:50052
+      IAM_GRPC_CLIENT_URL: iam-service:50051
+    ports:
+      - "3002:3002" # HTTP REST
+      - "50052:50052" # gRPC
+    depends_on:
+      iam-service:
+        condition: service_healthy
+    networks:
+      - spherax
+
+networks:
+  spherax:
+    driver: bridge
+
+
